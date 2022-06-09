@@ -29,3 +29,4 @@ variable "availability_zones" {
 variable "web_key_name" {
     default = "lunakey"
 }
+
