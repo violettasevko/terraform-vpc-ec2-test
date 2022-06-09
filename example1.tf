@@ -1,13 +1,5 @@
-required_providers {
-    aws = {
-        source = "hashicorp/aws"
-        version = "~> 4.0"
-
-    }
-}
-
 provider "aws" {
-    region = "eu-north-1"
+    region = "var.AWS_Region"
 }
 resource "aws_vpc" "vio-tf-vpc" {    #vpc created by terraform
   cidr_block       = var.vpc_cidr_block
