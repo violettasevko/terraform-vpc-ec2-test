@@ -157,7 +157,7 @@ resource "aws_security_group" "webserver" {
 resource "aws_instance" "al-arm64" {
     #for_each = var.availability_zones
 
-    ami = "${lookup(var.AMI1, "vio-al-arm64")}"
+    ami = "${lookup(var.AMI1, "al-arm64")}"
     instance_type = var.instance_type
     # VPC
     subnet_id = aws_subnet.subnet_public["eu-north-1a"].id
