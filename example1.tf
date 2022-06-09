@@ -7,9 +7,9 @@ terraform {
   }
 }
 
-provider "aws" {
+#provider "aws" {
   # Configuration options
-}
+#}
 
 resource "aws_vpc" "vio-tf-vpc" {    #vpc created by terraform
   cidr_block       = var.vpc_cidr_block
