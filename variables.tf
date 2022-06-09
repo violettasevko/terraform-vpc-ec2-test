@@ -1,8 +1,8 @@
 variable "AMI1" {
     type = map
     default = {
-        vio-amilinux = "ami-08bdc08970fcbd34a"
-        vio-ubuntu = "ami-01ded35841bc93d7f"
+        al-arm64 = "ami-0adfc82c1ad9f327b"
+        ubuntu-arm64 = "ami-0d7beeabef1d43e86"
     }
 }
 

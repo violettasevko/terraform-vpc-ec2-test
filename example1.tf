@@ -1,5 +1,5 @@
 provider "aws" {
-    region = "var.AWS_Region"
+    region = var.AWS_Region
 }
 
 resource "aws_vpc" "vio-tf-vpc" {    #vpc created by terraform
@@ -154,10 +154,10 @@ resource "aws_security_group" "webserver" {
     }
 }
 
-resource "aws_instance" "amazonlinux" {
+resource "aws_instance" "al-arm64" {
     #for_each = var.availability_zones
 
-    ami = "${lookup(var.AMI1, "vio-amilinux")}"
+    ami = "${lookup(var.AMI1, "vio-al-arm64")}"
     instance_type = var.instance_type
     # VPC
     subnet_id = aws_subnet.subnet_public["eu-north-1a"].id
@@ -168,14 +168,14 @@ resource "aws_instance" "amazonlinux" {
     #user_data = file("autoloadhttpd")
     
     tags = {
-        Name = "amazonlinux"
+        Name = "al-arm64"
         owner = "violetta"        
     }
 }
 
-resource "aws_instance" "ubuntu" {
+resource "aws_instance" "ubuntu-arm64" {
     #for_each = var.availability_zones
-    ami = "${lookup(var.AMI1, "vio-ubuntu")}"
+    ami = "${lookup(var.AMI1, "ubuntu-arm64")}"
     instance_type = var.instance_type
     # VPC
     subnet_id = aws_subnet.subnet_public["eu-north-1b"].id
@@ -186,7 +186,7 @@ resource "aws_instance" "ubuntu" {
     #user_data = file("autoloadhttpdub")
 
     tags = {
-        Name = "ubuntu"
+        Name = "ubuntu-arm64"
         owner = "violetta"
     }
 }
